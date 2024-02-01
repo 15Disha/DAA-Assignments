@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+   int m,n,c=0,t;
+   cout<<"Enter the no. of test cases=";
+   cin>>t;
+   for(int i=0;i<t;i++)
+   {
+     cout<<"Enter the number of elements=";
+     cin>>n;
+     int a[n];
+     cout<<"Enter the elements=";
+     for(int j=0;j<n;j++)
+     {
+       cin>>a[j];
+     }
+     cout<<"Enter the element to be searched=";
+     cin>>m;
+     c=0;
+     for(int i=0;i<n;i++)
+     {
+        c++;
+        if(a[i]==m)
+        {
+          cout<<"Key found"<<endl;
+          break;
+        }
+     }
+     cout<<"Total number of comparisons="<<c<<endl;
+
+   }
+}
