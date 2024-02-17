@@ -1,0 +1,45 @@
+#include<iostream>
+#define max 100
+using namespace std;
+int main()
+{
+	cout<<"Enter the number of test cases=";
+	int i,j,k,l,m,n,min,pos;
+	cin>>m;
+	for(i=0;i<m;i++)
+	{
+		cout<<"Enter the number of elements=";
+		cin>>n;
+		int a[max];
+		cout<<"Enter the elements=";
+		for(int r=0;r<n;r++)
+		{
+			cin>>a[r];
+		}
+		int c=0,s=0;
+		for(k=0;k<n-1;k++)
+		{
+			min=k;
+			for(j=k+1;j<n;j++)
+			{
+				c++;
+				if(a[j]<a[min])
+				{
+					min=j;
+				}
+			}
+			if(min!=k)
+			{
+				swap(a[k],a[min]);
+				s++;
+			}
+		}
+		cout<<"Sorted array="<<endl;
+		for(int s=0;s<n;s++)
+		{
+			cout<<a[s]<<"\n";
+		}
+		cout<<"comparisons="<<c<<endl;
+		cout<<"Swaps="<<s<<endl;
+	}
+}
