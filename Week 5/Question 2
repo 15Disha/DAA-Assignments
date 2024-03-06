@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+void findpair(int a[],int n,int key)
+{
+	int i=0;
+	int j=n-1;
+	int f=0;
+	while(i<j)
+	{
+		if(a[i]+a[j]==key)
+		{
+		cout<<a[i]<<" and "<<a[j]<<" = "<<key<<endl;
+		f=1;
+		break;
+	   }
+		else if(a[i]+a[j]<key)
+		{
+			i++;
+		}
+		else
+		{
+			j--;
+		}
+	}
+	if(f==0)
+	{
+		cout<<"No such pair found"<<endl;
+	}
+}
+void sort(int a[],int n)
+{
+	for(int i=0;i<n-1;i++)
+	{
+		int min=i;
+		for(int j=i+1;j<n;j++)
+		{
+			if(a[min]>a[j])
+			{
+				min=j;
+			}
+		}
+		if(min!=i)
+		swap(a[min],a[i]);
+	}
+}
+int main()
+{
+	cout<<"Enter the number of test cases=";
+	int n,m,i,j;
+	cin>>m;
+	for(i=0;i<m;i++)
+	{
+		cout<<"Enter the number of elements=";
+		cin>>n;
+		cout<<"Enter the elements:";
+		int a[n];
+		for(j=0;j<n;j++)
+		{
+			cin>>a[j];
+		}
+		cout<<"Enter the key=";
+		int key;
+		cin>>key;
+		sort(a,n);
+		findpair(a,n,key);
+	}
+}
