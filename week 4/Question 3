@@ -1,0 +1,60 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+int partition(int a[],int l,int r,int& s,int& c)
+{
+	int x=(rand()%(r-l+1))+1;
+	swap(a[x],a[r]);
+	int pivot=a[r];
+	int i=l-1;
+	for(int j=l;j<=r-1;j++)
+	{
+		c++;
+		if(a[j]<pivot)
+		{
+			i++;
+			swap(a[i],a[j]);
+			s++;
+		}
+	}
+	swap(a[i+1],a[r]);
+	s++;
+	return(i+1);
+}
+void qsort (int a[],int l,int r,int& s,int& c) 
+{
+	if(l<r)
+	{
+		int p=partition(a,l,r,s,c);
+		qsort(a,l,p-1,s,c);
+		qsort(a,p+1,r,s,c);
+	}
+}
+
+int main()
+{
+	int s,c;
+	cout<<"enter the no of test cases=";
+	int n,m,i,j;
+	cin>>m;
+	for(i=0;i<m;i++)
+	{
+		s=0,c=0;
+		cout<<"enter the no of elements=";
+	    cin>>n;
+	    int a[n];
+	    cout<<"enter the elements:"<<endl;
+	    for(j=0;j<n;j++)
+	    {
+	    	cin>>a[j];
+		}
+		qsort(a,0,n-1,s,c);
+		cout<<"sorted array:"<<endl;
+        for(j=0;j<n;j++)
+        {
+        	cout<<a[j]<<endl;
+		}
+		cout<<"Comparisons="<<c<<endl;
+		cout<<"Swaps="<<s<<endl;
+	}
+}
