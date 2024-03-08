@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+void same(int a[],int b[],int m,int n)
+{
+	int i=0,j=0;
+	while(i<m && j<n)
+	{
+		if(a[i]>b[j])
+		j++;
+		else if(a[i]<b[j])
+		i++;
+		else
+		{
+			cout<<a[i]<<b[j]<<endl;
+			i++;
+			j++;
+		}
+	}
+}
+int main()
+{
+	cout<<"Enter the number of test cases=";
+	int n,m,i,j,t;
+	cin>>t;
+	for(i=0;i<t;i++)
+	{
+		cout<<"Enter number of elements in 1st array=";
+		cin>>m;
+		int a[m];
+		cout<<"Enter the elements of 1st array:";
+		for(j=0;j<m;j++)
+		{
+			cin>>a[j];
+		}
+		cout<<"Enter number of elements in 2nd array=";
+		cin>>n;
+		int b[n];
+		cout<<"Enter the elements of 2nd array=";
+		for(j=0;j<n;j++)
+		{
+			cin>>b[j];
+		}
+		same(a,b,m,n);
+	}
+}
